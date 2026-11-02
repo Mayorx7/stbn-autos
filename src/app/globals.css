@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-heading: var(--font-heading), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* ── STBN AUTOS named brand tokens (usable as Tailwind classes) ── */
+  --color-brand-navy:    #062A5E;
+  --color-brand-dark:    #031B3D;
+  --color-brand-blue:    #0757A6;
+  --color-brand-accent:  #1689E8;
+  --color-brand-sky:     #D9ECFA;
+  --color-brand-border:  #D7DEE8;
+  --color-brand-surface: #F3F6FA;
+  --color-brand-text:    #53657A;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Backgrounds */
+  --background: #FFFFFF;
+  --foreground: #031B3D;
+  /* Cards / Popovers */
+  --card: #FFFFFF;
+  --card-foreground: #031B3D;
+  --popover: #FFFFFF;
+  --popover-foreground: #031B3D;
+  /* Primary = main primary-navy brand colour */
+  --primary: #062A5E;
+  --primary-foreground: #FFFFFF;
+  /* Secondary = pale sky-blue surface */
+  --secondary: #D9ECFA;
+  --secondary-foreground: #031B3D;
+  /* Muted = cool light-gray quiet surface */
+  --muted: #F3F6FA;
+  --muted-foreground: #53657A;
+  /* Accent = sky-blue subtle hover background */
+  --accent: #D9ECFA;
+  --accent-foreground: #062A5E;
+  /* Destructive stays red — universal error semantic */
+  --destructive: #0757A6;
+  /* Borders & inputs */
+  --border: #D7DEE8;
+  --input: #D7DEE8;
+  /* Ring = royal blue for focus indicators */
+  --ring: #0757A6;
+  /* Charts — all brand blues */
+  --chart-1: #0757A6;
+  --chart-2: #FFC400;
+  --chart-3: #062A5E;
+  --chart-4: #D9ECFA;
+  --chart-5: #53657A;
+  /* Sidebar — navy surfaces */
+  --sidebar: #062A5E;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FFC400;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #031B3D;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #0757A6;
+  --sidebar-ring: #FFC400;
+}
+
+.dark {
+  /* Admin panel — deep-navy dark theme */
+  --background: #031B3D;
+  --foreground: #FFFFFF;
+  --card: #062A5E;
+  --card-foreground: #FFFFFF;
+  --popover: #062A5E;
+  --popover-foreground: #FFFFFF;
+  --primary: #0757A6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #062A5E;
+  --secondary-foreground: #FFFFFF;
+  --muted: #062A5E;
+  --muted-foreground: #D7DEE8;
+  --accent: #031B3D;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FFC400;
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #FFC400;
+  --chart-1: #FFC400;
+  --chart-2: #0757A6;
+  --chart-3: #D9ECFA;
+  --chart-4: #062A5E;
+  --chart-5: #53657A;
+  --sidebar: #062A5E;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FFC400;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #031B3D;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: #FFC400;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+.custom-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='gray'><path d='m7 10l5 5 5-5z' /> </svg>") no-repeat;
+  background-position: right 0px center;
+}

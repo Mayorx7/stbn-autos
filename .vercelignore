@@ -1,0 +1,18 @@
+# Local credentials, database data, and exports
+.env*
+*.sql
+*.csv
+s3policy.json
+cors-sharing.json
+
+# Development and generated files
+node_modules
+.next
+dist
+.git
+.cursor
+.vscode
+White_car_drifting_20261027133702.mp4
+b_Cinematic_automotive.mp4
+classified-placeholer.jpg
+snip-*.png
